@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all spots
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new spot
+    </h2>
+
+    <form action="/insert_spot" method="post">
+      <div>
+        <label for="hours_box">
+          Hours
+        </label>
+
+        <input type="time" id="hours_box" name="query_hours">
+      </div>
+
+      <div>
+        <label for="traffic_box">
+          Traffic
+        </label>
+
+        <input type="text" id="traffic_box" name="query_traffic">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo">
+      </div>
+
+      <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address">
+      </div>
+
+      <div>
+        <label for="region_id_box">
+          Region
+        </label>
+
+        <input type="text" id="region_id_box" name="query_region_id">
+      </div>
+
+      <button>
+        Create spot
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Hours
+        </th>
+
+        <th>
+          Traffic
+        </th>
+
+        <th>
+          Photo
+        </th>
+
+        <th>
+          Address
+        </th>
+
+        <th>
+          Region
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_spots.each do |a_spot| %>
+      <tr>
+        <td>
+          <%= a_spot.id %>
+        </td>
+
+        <td>
+          <%= a_spot.hours %>
+        </td>
+
+        <td>
+          <%= a_spot.traffic %>
+        </td>
+
+        <td>
+          <%= a_spot.photo %>
+        </td>
+
+        <td>
+          <%= a_spot.address %>
+        </td>
+
+        <td>
+          <%= a_spot.region_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_spot.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_spot.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/spots/<%= a_spot.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

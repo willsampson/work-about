@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all spot types
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new spot type
+    </h2>
+
+    <form action="/insert_spot_type" method="post">
+      <div>
+        <label for="spot_id_box">
+          Spot
+        </label>
+
+        <input type="text" id="spot_id_box" name="query_spot_id">
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id">
+      </div>
+
+      <button>
+        Create spot type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Spot
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_spot_types.each do |a_spot_type| %>
+      <tr>
+        <td>
+          <%= a_spot_type.id %>
+        </td>
+
+        <td>
+          <%= a_spot_type.spot_id %>
+        </td>
+
+        <td>
+          <%= a_spot_type.category_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_spot_type.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_spot_type.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/spot_types/<%= a_spot_type.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

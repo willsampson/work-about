@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Category #<%= @the_category.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/categories">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_category/<%= @the_category.id %>">
+          Delete category
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Cafe
+      </dt>
+      <dd>
+        <%= @the_category.cafe %>
+      </dd>
+
+      <dt>
+        Library
+      </dt>
+      <dd>
+        <%= @the_category.library %>
+      </dd>
+
+      <dt>
+        Hotel
+      </dt>
+      <dd>
+        <%= @the_category.hotel %>
+      </dd>
+
+      <dt>
+        Public space
+      </dt>
+      <dd>
+        <%= @the_category.public_space %>
+      </dd>
+
+      <dt>
+        Mixed use
+      </dt>
+      <dd>
+        <%= @the_category.mixed_use %>
+      </dd>
+
+      <dt>
+        Coworking
+      </dt>
+      <dd>
+        <%= @the_category.coworking %>
+      </dd>
+
+      <dt>
+        Outdoor option
+      </dt>
+      <dd>
+        <%= @the_category.outdoor_option %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_category.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_category.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit category
+    </h2>
+
+    <form action="/modify_category/<%= @the_category.id %>"  method="post" >
+      <div>
+        <input type="checkbox" id="cafe_box" name="query_cafe" value="1" <%= "checked" if @the_category.cafe %>>
+
+        <label for="cafe_box">
+            Cafe
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="library_box" name="query_library" value="1" <%= "checked" if @the_category.library %>>
+
+        <label for="library_box">
+            Library
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="hotel_box" name="query_hotel" value="1" <%= "checked" if @the_category.hotel %>>
+
+        <label for="hotel_box">
+            Hotel
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="public_space_box" name="query_public_space" value="1" <%= "checked" if @the_category.public_space %>>
+
+        <label for="public_space_box">
+            Public space
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="mixed_use_box" name="query_mixed_use" value="1" <%= "checked" if @the_category.mixed_use %>>
+
+        <label for="mixed_use_box">
+            Mixed use
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="coworking_box" name="query_coworking" value="1" <%= "checked" if @the_category.coworking %>>
+
+        <label for="coworking_box">
+            Coworking
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="outdoor_option_box" name="query_outdoor_option" value="1" <%= "checked" if @the_category.outdoor_option %>>
+
+        <label for="outdoor_option_box">
+            Outdoor option
+        </label>
+      </div>
+
+      <button>
+        Update category
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

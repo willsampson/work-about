@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Library #<%= @the_library.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/libraries">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_library/<%= @the_library.id %>">
+          Delete library
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_library.user_id %>
+      </dd>
+
+      <dt>
+        Spot
+      </dt>
+      <dd>
+        <%= @the_library.spot_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_library.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_library.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit library
+    </h2>
+
+    <form action="/modify_library/<%= @the_library.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_library.user_id %>">
+      </div>
+
+      <div>
+        <label for="spot_id_box">
+          Spot
+        </label>
+
+        <input type="text" id="spot_id_box" name="query_spot_id" value="<%= @the_library.spot_id %>">
+      </div>
+
+      <button>
+        Update library
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

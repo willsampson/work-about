@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Spot offering #<%= @the_spot_offering.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/spot_offerings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_spot_offering/<%= @the_spot_offering.id %>">
+          Delete spot offering
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Spot
+      </dt>
+      <dd>
+        <%= @the_spot_offering.spot_id %>
+      </dd>
+
+      <dt>
+        Amenity
+      </dt>
+      <dd>
+        <%= @the_spot_offering.amenity_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_spot_offering.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_spot_offering.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit spot offering
+    </h2>
+
+    <form action="/modify_spot_offering/<%= @the_spot_offering.id %>"  method="post" >
+      <div>
+        <label for="spot_id_box">
+          Spot
+        </label>
+
+        <input type="text" id="spot_id_box" name="query_spot_id" value="<%= @the_spot_offering.spot_id %>">
+      </div>
+
+      <div>
+        <label for="amenity_id_box">
+          Amenity
+        </label>
+
+        <input type="text" id="amenity_id_box" name="query_amenity_id" value="<%= @the_spot_offering.amenity_id %>">
+      </div>
+
+      <button>
+        Update spot offering
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Spot type #<%= @the_spot_type.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/spot_types">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_spot_type/<%= @the_spot_type.id %>">
+          Delete spot type
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Spot
+      </dt>
+      <dd>
+        <%= @the_spot_type.spot_id %>
+      </dd>
+
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_spot_type.category_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_spot_type.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_spot_type.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit spot type
+    </h2>
+
+    <form action="/modify_spot_type/<%= @the_spot_type.id %>"  method="post" >
+      <div>
+        <label for="spot_id_box">
+          Spot
+        </label>
+
+        <input type="text" id="spot_id_box" name="query_spot_id" value="<%= @the_spot_type.spot_id %>">
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id" value="<%= @the_spot_type.category_id %>">
+      </div>
+
+      <button>
+        Update spot type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

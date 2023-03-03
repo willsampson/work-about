@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Region #<%= @the_region.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/regions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_region/<%= @the_region.id %>">
+          Delete region
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Northside
+      </dt>
+      <dd>
+        <%= @the_region.northside %>
+      </dd>
+
+      <dt>
+        Southside
+      </dt>
+      <dd>
+        <%= @the_region.southside %>
+      </dd>
+
+      <dt>
+        Suburbs
+      </dt>
+      <dd>
+        <%= @the_region.suburbs %>
+      </dd>
+
+      <dt>
+        Downtown
+      </dt>
+      <dd>
+        <%= @the_region.downtown %>
+      </dd>
+
+      <dt>
+        Westside
+      </dt>
+      <dd>
+        <%= @the_region.westside %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_region.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_region.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit region
+    </h2>
+
+    <form action="/modify_region/<%= @the_region.id %>"  method="post" >
+      <div>
+        <label for="northside_box">
+          Northside
+        </label>
+
+        <input type="text" id="northside_box" name="query_northside" value="<%= @the_region.northside %>">
+      </div>
+
+      <div>
+        <label for="southside_box">
+          Southside
+        </label>
+
+        <input type="text" id="southside_box" name="query_southside" value="<%= @the_region.southside %>">
+      </div>
+
+      <div>
+        <label for="suburbs_box">
+          Suburbs
+        </label>
+
+        <input type="text" id="suburbs_box" name="query_suburbs" value="<%= @the_region.suburbs %>">
+      </div>
+
+      <div>
+        <label for="downtown_box">
+          Downtown
+        </label>
+
+        <input type="text" id="downtown_box" name="query_downtown" value="<%= @the_region.downtown %>">
+      </div>
+
+      <div>
+        <label for="westside_box">
+          Westside
+        </label>
+
+        <input type="text" id="westside_box" name="query_westside" value="<%= @the_region.westside %>">
+      </div>
+
+      <button>
+        Update region
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

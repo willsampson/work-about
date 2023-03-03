@@ -1,0 +1,192 @@
+<div>
+  <div>
+    <h1>
+      List of all amenities
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new amenity
+    </h2>
+
+    <form action="/insert_amenity" method="post">
+      <div>
+        <label for="outlets_box">
+          Outlets
+        </label>
+
+        <input type="text" id="outlets_box" name="query_outlets">
+      </div>
+
+      <div>
+        <input type="checkbox" id="coffee_box" name="query_coffee" value="1">
+
+        <label for="coffee_box">Coffee</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="food_box" name="query_food" value="1">
+
+        <label for="food_box">Food</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="wifi_box" name="query_wifi" value="1">
+
+        <label for="wifi_box">Wifi</label>
+      </div>
+
+      <div>
+        <label for="transit_access_box">
+          Transit access
+        </label>
+
+        <input type="text" id="transit_access_box" name="query_transit_access">
+      </div>
+
+      <div>
+        <label for="seating_box">
+          Seating
+        </label>
+
+        <input type="text" id="seating_box" name="query_seating">
+      </div>
+
+      <div>
+        <label for="noise_box">
+          Noise
+        </label>
+
+        <input type="text" id="noise_box" name="query_noise">
+      </div>
+
+      <div>
+        <label for="spot_id_box">
+          Spot
+        </label>
+
+        <input type="text" id="spot_id_box" name="query_spot_id">
+      </div>
+
+      <button>
+        Create amenity
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Outlets
+        </th>
+
+        <th>
+          Coffee
+        </th>
+
+        <th>
+          Food
+        </th>
+
+        <th>
+          Wifi
+        </th>
+
+        <th>
+          Transit access
+        </th>
+
+        <th>
+          Seating
+        </th>
+
+        <th>
+          Noise
+        </th>
+
+        <th>
+          Spot
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_amenities.each do |an_amenity| %>
+      <tr>
+        <td>
+          <%= an_amenity.id %>
+        </td>
+
+        <td>
+          <%= an_amenity.outlets %>
+        </td>
+
+        <td>
+          <%= an_amenity.coffee %>
+        </td>
+
+        <td>
+          <%= an_amenity.food %>
+        </td>
+
+        <td>
+          <%= an_amenity.wifi %>
+        </td>
+
+        <td>
+          <%= an_amenity.transit_access %>
+        </td>
+
+        <td>
+          <%= an_amenity.seating %>
+        </td>
+
+        <td>
+          <%= an_amenity.noise %>
+        </td>
+
+        <td>
+          <%= an_amenity.spot_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_amenity.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_amenity.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/amenities/<%= an_amenity.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
