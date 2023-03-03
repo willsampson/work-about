@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Neighborhood resource:
+
+  # CREATE
+  post("/insert_neighborhood", { :controller => "neighborhoods", :action => "create" })
+          
+  # READ
+  get("/neighborhoods", { :controller => "neighborhoods", :action => "index" })
+  
+  get("/neighborhoods/:path_id", { :controller => "neighborhoods", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_neighborhood/:path_id", { :controller => "neighborhoods", :action => "update" })
+  
+  # DELETE
+  get("/delete_neighborhood/:path_id", { :controller => "neighborhoods", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Spot type resource:
 
   # CREATE
@@ -57,25 +76,7 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_library/:path_id", { :controller => "libraries", :action => "destroy" })
 
-  #------------------------------
-
-  # Routes for the Region resource:
-
-  # CREATE
-  post("/insert_region", { :controller => "regions", :action => "create" })
-          
-  # READ
-  get("/regions", { :controller => "regions", :action => "index" })
-  
-  get("/regions/:path_id", { :controller => "regions", :action => "show" })
-  
-  # UPDATE
-  
-  post("/modify_region/:path_id", { :controller => "regions", :action => "update" })
-  
-  # DELETE
-  get("/delete_region/:path_id", { :controller => "regions", :action => "destroy" })
-
+ 
   #------------------------------
 
   # Routes for the Amenity resource:

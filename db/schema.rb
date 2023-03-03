@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_03_033454) do
+ActiveRecord::Schema.define(version: 2023_03_03_043024) do
 
   create_table "amenities", force: :cascade do |t|
     t.string "outlets"
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2023_03_03_033454) do
   create_table "libraries", force: :cascade do |t|
     t.integer "user_id"
     t.integer "spot_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string "region"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
